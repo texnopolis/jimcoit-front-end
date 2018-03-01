@@ -1,0 +1,21 @@
+<!-- <div *ngFor="let news of news" class="card" style="width: 18rem;">
+    <img class="card-img-top" src={{news.url}} alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{news.title}}</h5>
+      <p class="card-text">{{news.text}}</p>
+      <a href="#" class="btn btn-primary">Читать</a>
+    </div>
+</div> -->
+
+
+  <div *ngFor="let news of news" class="row">
+      <div class="col-sm-6 mx-auto">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{news.title}}</h5>
+            <p class="card-text">{{news.text}}</p>
+            <a href="#" class="btn btn-primary">Читать</a>
+          </div>
+        </div>
+      </div>
+  </div>

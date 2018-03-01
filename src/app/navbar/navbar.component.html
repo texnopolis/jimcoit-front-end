@@ -1,0 +1,107 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+
+    <a class="navbar-brand" routerLink="/">
+      JM Cluster
+    </a>
+
+    <button class="navbar-toggler" (click)="isCollapsed = !isCollapsed" type="button" [attr.aria-expanded]="!isCollapsed">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div [ngbCollapse]="isCollapsed" class="navbar-collapse flex-column">
+      <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item">
+            <select class="custom-select bg-light mr-sm-2" id="inlineFormCustomSelect">
+                <option value="1">Русский</option>
+                <option value="2">Українська</option>
+                <option value="3">English</option>
+                <option value="4">Polski</option>
+                <option value="5">Česky</option>
+            </select>
+        </li>
+
+        <!-- <li ngbDropdown class="nav-item dropdown">
+          <a ngbDropdownToggle class="nav-item nav-link dropdown-toggle mr-md-2">
+            Рус
+          </a>
+          <div class="dropdown-menu" ngbDropdownMenu>
+            <a class="dropdown-item active" href="#">Рус</a>
+            <a class="dropdown-item" href="#">Укр</a>
+            <a class="dropdown-item" href="#">Eng</a>
+          </div>
+        </li> -->
+
+        <li class="nav-item">
+          <form class="form-inline my-2 my-md-0">
+            <input class="form-control form-control-sm" type="text" placeholder="Поиск" aria-label="Search">
+          </form>
+        </li>
+        
+        <li *ngIf="authService.isLoggedIn()"><a class="nav-link">{{ authService.currentUser.name }}</a></li>
+        <li *ngIf="!authService.isLoggedIn()" class="nav-item"><a class="nav-link" href="#">Регистрация</a></li>
+        <li *ngIf="!authService.isLoggedIn()" class="nav-item"><a class="nav-link" routerLink="/login">Вход</a></li>
+        <li *ngIf="authService.isLoggedIn()" class="nav-item"><a class="nav-link" routerLink="/login" (click)="authService.logout()">Выход</a></li>
+      </ul>
+
+      <ul class="navbar-nav ">
+        <li ngbDropdown class="nav-item dropdown active">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle">Образование <span class="sr-only">(current)</span></a>
+          <div ngbDropdownMenu class="dropdown-menu show">
+              <a class="dropdown-item" routerLink="/cluster">
+                  <span class="h6 mb-0">Кластер</span>
+                  <div class="text-small text-muted">Инжиниринг, моделирование</div>
+                  <div class="text-small text-muted">Front-end реализация</div>
+                  <div class="text-small text-muted">Back-end реализация</div>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" routerLink="/chair">
+                  <span class="h6 mb-0">Кафедра</span>
+                  <p class="text-small text-muted">Деятельность кафедры</p>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" routerLink="/khpi">
+                  <span class="h6 mb-0">ХПИ</span>
+                  <p class="text-small text-muted">Деятельность института</p>
+              </a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Наука</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Производство</a>
+        </li>
+        <li ngbDropdown class="nav-item dropdown">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle">Инструменты</a>
+          <div ngbDropdownMenu class="dropdown-menu">
+            <a class="dropdown-item" routerLink="/cutting-calculation">
+              <span class="h6 mb-0">Расчет режимов резания</span>
+              <p class="text-small text-muted">Фрезерование, точение, сверление</p>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" routerLink="/virtual-warehouse">
+                <span class="h6 mb-0">Виртуальный склад</span>
+                <p class="text-small text-muted">Оптимизация склада</p>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" routerLink="/planner">
+                <span class="h6 mb-0">Планирование</span>
+                <p class="text-small text-muted">Управление проектами</p>
+            </a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/news">Новости</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Участники</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contacts">Контакты</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

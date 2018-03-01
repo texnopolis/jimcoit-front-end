@@ -1,0 +1,25 @@
+
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+.navbar {
+    border-bottom: 1px solid #00b0ff;/*#5bc0de*/
+    box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
+}
+
+.navbar-brand {
+    font-size: 2.1rem;
+}
+.custom-select {
+    border: none;
+    width: auto;
+}
+.custom-select:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+.form-inline {
+    height: 2.25rem;
+}
