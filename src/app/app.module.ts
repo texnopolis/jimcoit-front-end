@@ -30,6 +30,7 @@ import { AdminAuthGuard } from './services/admin-auth-guard.service';
 import { OrderService } from './services/order.service';
 
 import { NewsService } from './services/news.service';
+import { KnowledgeComponent } from './knowledge/knowledge.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { NewsService } from './services/news.service';
     ClusterComponent,
     LoginComponent,
     AdminComponent,
+    KnowledgeComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,6 +85,10 @@ import { NewsService } from './services/news.service';
       {
         path: 'cutting-calculation',
         component: CuttingCalcComponent
+      },
+      {
+        path: 'knowledge',
+        component: KnowledgeComponent
       },
       {
         path: 'virtual-warehouse',

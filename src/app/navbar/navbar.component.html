@@ -47,7 +47,9 @@
 
       <ul class="navbar-nav ">
         <li ngbDropdown class="nav-item dropdown active">
-          <a ngbDropdownToggle class="nav-link dropdown-toggle">Образование <span class="sr-only">(current)</span></a>
+            
+          <a ngbDropdownToggle class="nav-link dropdown-toggle">
+            <img src="assets\img\earth-globe.svg" alt="" width="40"> Образование <span class="sr-only">(current)</span></a>
           <div ngbDropdownMenu class="dropdown-menu show">
               <a class="dropdown-item" routerLink="/cluster">
                   <span class="h6 mb-0">Кластер</span>
@@ -67,14 +69,17 @@
               </a>
           </div>
         </li>
+        <li class="divider-vertical"></li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Наука</a>
+          <a class="nav-link" href="#"><img src="assets\img\scientist_1.svg" alt="" width="40"> Наука</a>
         </li>
+        <li class="divider-vertical"></li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Производство</a>
+          <a class="nav-link" href="#"><img src="assets\img\industrial-robot.svg" alt="" width="40"> Производство</a>
         </li>
+        <li class="divider-vertical"></li>
         <li ngbDropdown class="nav-item dropdown">
-          <a ngbDropdownToggle class="nav-link dropdown-toggle">Инструменты</a>
+          <a ngbDropdownToggle class="nav-link dropdown-toggle"><img src="assets\img\calculator.svg" alt="" width="40"> Инструменты</a>
           <div ngbDropdownMenu class="dropdown-menu">
             <a class="dropdown-item" routerLink="/cutting-calculation">
               <span class="h6 mb-0">Расчет режимов резания</span>
@@ -90,16 +95,24 @@
                 <span class="h6 mb-0">Планирование</span>
                 <p class="text-small text-muted">Управление проектами</p>
             </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" routerLink="/knowledge">
+              <span class="h6 mb-0">База знаний</span>
+              <p class="text-small text-muted">Техническая информация</p>
+            </a>
           </div>
         </li>
+        <li class="divider-vertical"></li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/news">Новости</a>
+          <a class="nav-link" href="#"><img src="assets\img\transfer.svg" alt="" width="40"> Участники</a>
         </li>
+        <li class="divider-vertical"></li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Участники</a>
+          <a class="nav-link" routerLink="/news"><img src="assets\img\conversation.svg" alt="" width="40"> Новости</a>
         </li>
+        <li class="divider-vertical"></li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/contacts">Контакты</a>
+          <a class="nav-link" routerLink="/contacts"><img src="assets\img\email.svg" alt="" width="40"> Контакты</a>
         </li>
       </ul>
     </div>

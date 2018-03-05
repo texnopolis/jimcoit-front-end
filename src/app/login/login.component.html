@@ -1,7 +1,7 @@
 <div class="form-container text-center">
 
   <form class="form-signin" #f="ngForm" (ngSubmit)="signIn(f.value)">
-      <img class="mb-4" src="https://www.tsafindia.org/assets/images/signin.png" alt="" width="72">
+      <img class="mb-4" src="assets\img\security.svg" alt="" width="72">
       <h1 class="h3 mb-3 font-weight-normal">Авторизация</h1>
       <div *ngIf="invalidLogin" class="alert alert-danger">
           Invalid username and/or password.
