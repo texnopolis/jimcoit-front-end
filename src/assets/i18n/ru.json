@@ -1,0 +1,15 @@
+{
+  "NAVBAR": {
+    "SEARCH": "Поиск",
+    "SIGNUP": "Регистрация",
+    "SIGNIN": "Вход",
+    "SIGNOUT": "Выход",
+    "EDUCATION": "Образование",
+    "SCIENCE": "Наука",
+    "MANUFACTURING": "Производство",
+    "TOOLS": "Инструменты",
+    "PARTICIPANTS": "Участники",
+    "PROJECTS": "Проекты",
+    "CONTACTS": "Контакты"
+  }
+}

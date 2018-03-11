@@ -1,8 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light sticky-top" [class.sticky]="isScrolled" (scroll)="onScroll($event)">
   <div class="container">
 
     <a class="navbar-brand" routerLink="/">
-      JM Cluster
+      <img src="/assets/img/Logo.svg" style="width: 99px" alt="Logo">
     </a>
 
     <button class="navbar-toggler" (click)="isCollapsed = !isCollapsed" type="button" [attr.aria-expanded]="!isCollapsed">
@@ -10,16 +10,34 @@
     </button>
 
     <div [ngbCollapse]="isCollapsed" class="navbar-collapse flex-column">
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav ml-auto settings-content">
+        <li class="nav-item lang">
+          <label *ngFor="let lang of translate.getLangs()" class="lang-box">{{ lang | uppercase }}
+              <input type="radio" #langSelect (change)="translate.use(langSelect.value)" [value]="lang" [checked]="lang === translate.currentLang" name="radio">
+              <span class="checkmark"></span>
+          </label>
 
-        <li class="nav-item">
-            <select class="custom-select bg-light mr-sm-2" id="inlineFormCustomSelect">
-                <option value="1">Русский</option>
-                <option value="2">Українська</option>
-                <option value="3">English</option>
-                <option value="4">Polski</option>
-                <option value="5">Česky</option>
-            </select>
+          <!-- <select #langSelect (change)="translate.use(langSelect.value)">
+            <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+          </select> -->
+
+
+          <!-- <label class="lang-box">Ukr
+              <input type="radio" name="radio">
+              <span class="checkmark"></span>
+          </label>
+          <label class="lang-box">Rus
+              <input type="radio" name="radio">
+              <span class="checkmark"></span>
+          </label> -->
+          
+            <!-- <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                <option value="1">Рус</option>
+                <option value="2">Укр</option>
+                <option value="3">Eng</option>
+                <option value="4">Pol</option>
+                <option value="5">Čes</option>
+            </select> -->
         </li>
 
         <!-- <li ngbDropdown class="nav-item dropdown">
@@ -35,21 +53,20 @@
 
         <li class="nav-item">
           <form class="form-inline my-2 my-md-0">
-            <input class="form-control form-control-sm" type="text" placeholder="Поиск" aria-label="Search">
+            <input class="form-control form-control-sm" type="text" placeholder="{{ 'NAVBAR.SEARCH' | translate }}" aria-label="Search">
           </form>
         </li>
         
         <li *ngIf="authService.isLoggedIn()"><a class="nav-link">{{ authService.currentUser.name }}</a></li>
-        <li *ngIf="!authService.isLoggedIn()" class="nav-item"><a class="nav-link" href="#">Регистрация</a></li>
-        <li *ngIf="!authService.isLoggedIn()" class="nav-item"><a class="nav-link" routerLink="/login">Вход</a></li>
-        <li *ngIf="authService.isLoggedIn()" class="nav-item"><a class="nav-link" routerLink="/login" (click)="authService.logout()">Выход</a></li>
+        <li *ngIf="!authService.isLoggedIn()" class="nav-item" routerLinkActive="active"><a class="nav-link" href="#">{{ 'NAVBAR.SIGNUP' | translate }}</a></li>
+        <li *ngIf="!authService.isLoggedIn()" class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/login">{{ 'NAVBAR.SIGNIN' | translate }}</a></li>
+        <li *ngIf="authService.isLoggedIn()" class="nav-item"><a class="nav-link" routerLink="/login" (click)="authService.logout()">{{ 'NAVBAR.SIGNOUT' | translate }}</a></li>
       </ul>
 
       <ul class="navbar-nav ">
-        <li ngbDropdown class="nav-item dropdown active">
-            
+        <li ngbDropdown class="nav-item dropdown" routerLinkActive="active">
           <a ngbDropdownToggle class="nav-link dropdown-toggle">
-            <img src="assets\img\earth-globe.svg" alt="" width="40"> Образование <span class="sr-only">(current)</span></a>
+            <span class="icon-earth-globe"></span> {{ 'NAVBAR.EDUCATION' | translate }}</a>
           <div ngbDropdownMenu class="dropdown-menu show">
               <a class="dropdown-item" routerLink="/cluster">
                   <span class="h6 mb-0">Кластер</span>
@@ -70,16 +87,16 @@
           </div>
         </li>
         <li class="divider-vertical"></li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><img src="assets\img\scientist_1.svg" alt="" width="40"> Наука</a>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" href="#"><span class="icon-scientist_1"></span> {{ 'NAVBAR.SCIENCE' | translate }}</a>
         </li>
         <li class="divider-vertical"></li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><img src="assets\img\industrial-robot.svg" alt="" width="40"> Производство</a>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" href="#"><span class="icon-industrial-robot"></span> {{ 'NAVBAR.MANUFACTURING' | translate }}</a>
         </li>
         <li class="divider-vertical"></li>
-        <li ngbDropdown class="nav-item dropdown">
-          <a ngbDropdownToggle class="nav-link dropdown-toggle"><img src="assets\img\calculator.svg" alt="" width="40"> Инструменты</a>
+        <li ngbDropdown class="nav-item dropdown" routerLinkActive="active">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle"><span class="icon-calculator"></span> {{ 'NAVBAR.TOOLS' | translate }}</a>
           <div ngbDropdownMenu class="dropdown-menu">
             <a class="dropdown-item" routerLink="/cutting-calculation">
               <span class="h6 mb-0">Расчет режимов резания</span>
@@ -103,16 +120,16 @@
           </div>
         </li>
         <li class="divider-vertical"></li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><img src="assets\img\transfer.svg" alt="" width="40"> Участники</a>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/projects"><span class="icon-projects"></span> {{ 'NAVBAR.PROJECTS' | translate }}</a>
         </li>
         <li class="divider-vertical"></li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/news"><img src="assets\img\conversation.svg" alt="" width="40"> Новости</a>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/participate"><span class="icon-transfer"></span> {{ 'NAVBAR.PARTICIPANTS' | translate }}</a>
         </li>
         <li class="divider-vertical"></li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/contacts"><img src="assets\img\email.svg" alt="" width="40"> Контакты</a>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/contacts"><span class="icon-email"></span> {{ 'NAVBAR.CONTACTS' | translate }}</a>
         </li>
       </ul>
     </div>

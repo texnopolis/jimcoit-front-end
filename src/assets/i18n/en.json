@@ -1,0 +1,15 @@
+{
+  "NAVBAR": {
+    "SEARCH": "Search",
+    "SIGNUP": "Sign up",
+    "SIGNIN": "Sign in",
+    "SIGNOUT": "Sign out",
+    "EDUCATION": "Education",
+    "SCIENCE": "Science",
+    "MANUFACTURING": "Manufacturing",
+    "TOOLS": "Tools",
+    "PARTICIPANTS": "Participants",
+    "PROJECTS": "Projects",
+    "CONTACTS": "Contacts"
+  }
+}

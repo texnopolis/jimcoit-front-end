@@ -1,3 +1,8 @@
+//
+import {HttpClientModule, HttpClient} from '@angular/common/http';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -23,14 +28,24 @@ import { ChairComponent } from './chair/chair.component';
 import { ClusterComponent } from './cluster/cluster.component';
 import { LoginComponent } from './login/login.component';
 
+
 import { AuthService } from './services/auth.service';
 import { AdminComponent } from './admin/admin.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { AdminAuthGuard } from './services/admin-auth-guard.service';
 import { OrderService } from './services/order.service';
+import { WindowRef } from './services/window-ref.service';
 
 import { NewsService } from './services/news.service';
 import { KnowledgeComponent } from './knowledge/knowledge.component';
+import { ParticipateComponent } from './participate/participate.component';
+import { ProjectsComponent } from './projects/projects.component';
+
+
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 
 @NgModule({
@@ -50,11 +65,21 @@ import { KnowledgeComponent } from './knowledge/knowledge.component';
     LoginComponent,
     AdminComponent,
     KnowledgeComponent,
+    ParticipateComponent,
+    ProjectsComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     NgbModule.forRoot(),
     RouterModule.forRoot([
       {
@@ -99,7 +124,11 @@ import { KnowledgeComponent } from './knowledge/knowledge.component';
         component: PlannerComponent
       },
       {
-        path: 'news',
+        path: 'participate',
+        component: ParticipateComponent
+      },
+      {
+        path: 'projects',
         component: NewsComponent
       },
       {
@@ -120,7 +149,8 @@ import { KnowledgeComponent } from './knowledge/knowledge.component';
     AdminAuthGuard,
     fakeBackendProvider,
     MockBackend,
-    BaseRequestOptions
+    BaseRequestOptions,
+    WindowRef
   ],
   bootstrap: [AppComponent]
 })
