@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light sticky-top" [class.sticky]="isScrolled" (scroll)="onScroll($event)">
+<nav class="navbar navbar-expand-lg navbar-light" [class.fixed-top]="isFixed" [class.sticky]="isScrolled" (scroll)="onScroll($event)" (window:resize)="onResize($event)">
   <div class="container">
 
     <a class="navbar-brand" routerLink="/">
@@ -88,11 +88,11 @@
         </li>
         <li class="divider-vertical"></li>
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" href="#"><span class="icon-scientist_1"></span> {{ 'NAVBAR.SCIENCE' | translate }}</a>
+          <a class="nav-link" routerLink="/science"><span class="icon-scientist_1"></span> {{ 'NAVBAR.SCIENCE' | translate }}</a>
         </li>
         <li class="divider-vertical"></li>
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" href="#"><span class="icon-industrial-robot"></span> {{ 'NAVBAR.MANUFACTURING' | translate }}</a>
+          <a class="nav-link" routerLink="/manufacturing"><span class="icon-industrial-robot"></span> {{ 'NAVBAR.MANUFACTURING' | translate }}</a>
         </li>
         <li class="divider-vertical"></li>
         <li ngbDropdown class="nav-item dropdown" routerLinkActive="active">

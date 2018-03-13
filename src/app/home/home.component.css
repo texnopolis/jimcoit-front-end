@@ -1,0 +1,79 @@
+.intro {
+    position: relative;
+}
+
+.intro-bg {
+    opacity: 0.6;
+}
+
+.intro-logo {
+    display: none;
+}
+
+.intro-slogan {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+.intro-slogan h1 {
+    /* color: #736d68; */
+    color: #827c78;
+    font-weight: 500;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    line-height: 35px;
+}
+
+@media (min-width: 576px) {
+    .intro-slogan {
+        top: 50%;
+    }
+    .intro-slogan h1 {
+        font-size: 2rem;
+        line-height: 50px;
+    }
+}
+
+@media (min-width: 768px) {
+    .intro-bg {
+        opacity: 1;
+    }
+    .intro-logo {
+        display: block;
+        position: absolute;
+        width: 270px;
+        margin-left: auto;
+        margin-right: auto;
+        top: 20px;
+        right: 0;
+        left: 0;
+    }
+    .intro-slogan {
+        top: 100%;
+    }
+    .intro-slogan h1 {
+        line-height: normal;
+    }
+}
+
+@media (min-width: 992px) {
+    .intro-logo {
+        width: 358px;
+        top: 75px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .intro-slogan h1 {
+        font-size: 3rem;
+    }
+}
+@media (min-width: 1350px) {
+    .intro-slogan {
+        top: 75%;
+    }
+}

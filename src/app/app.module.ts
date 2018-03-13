@@ -40,6 +40,8 @@ import { NewsService } from './services/news.service';
 import { KnowledgeComponent } from './knowledge/knowledge.component';
 import { ParticipateComponent } from './participate/participate.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { ManufacturingComponent } from './manufacturing/manufacturing.component';
+import { ScienceComponent } from './science/science.component';
 
 
 
@@ -67,6 +69,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     KnowledgeComponent,
     ParticipateComponent,
     ProjectsComponent,
+    ManufacturingComponent,
+    ScienceComponent,
   ],
   imports: [
     BrowserModule,
@@ -106,6 +110,14 @@ export function HttpLoaderFactory(http: HttpClient) {
       {
         path: 'khpi',
         component: KhpiComponent
+      },
+      {
+        path: 'science',
+        component: ScienceComponent
+      },
+      {
+        path: 'manufacturing',
+        component: ManufacturingComponent
       },
       {
         path: 'cutting-calculation',
