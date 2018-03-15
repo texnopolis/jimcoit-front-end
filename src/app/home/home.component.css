@@ -21,11 +21,24 @@
 
 .intro-slogan h1 {
     /* color: #736d68; */
-    color: #827c78;
+    /* color: #827c78; */
+    color: #928d8b;
     font-weight: 500;
     font-size: 1.5rem;
     letter-spacing: 2px;
     line-height: 35px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.intro-slogan h3 {
+    /* color: #736d68; */
+    /* color: #827c78; */
+    /* color: #928d8b; */
+    font-weight: 500;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    line-height: 35px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 @media (min-width: 576px) {
@@ -56,24 +69,45 @@
         top: 100%;
     }
     .intro-slogan h1 {
+        font-size: 1.5rem;
         line-height: normal;
     }
+    .intro-slogan h3 {
+        font-size: 1.1rem;
+    } 
 }
 
 @media (min-width: 992px) {
     .intro-logo {
-        width: 358px;
-        top: 75px;
+        width: 264px;
+        top: 57px;
     }
+    .intro-slogan {
+        top: 78%;
+    }
+    .intro-slogan h3 {
+        font-size: 1.5rem;
+    } 
 }
 
 @media (min-width: 1200px) {
+    .intro-slogan {
+        top: 76%;
+    }
+    .intro-logo {
+        width: 308px;
+        top: 69px;
+    }
     .intro-slogan h1 {
-        font-size: 3rem;
+        font-size: 2.6rem;
     }
 }
 @media (min-width: 1350px) {
+    .intro-logo {
+        width: 358px;
+        top: 75px;
+    }
     .intro-slogan {
-        top: 75%;
+        top: 79%;
     }
 }

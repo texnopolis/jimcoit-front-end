@@ -13,6 +13,9 @@
     "CONTACTS": "Contacts"
   },
   "HOME": {
-    "INTRO": "Java International Machine-building<br> Center of open Information Technology"
+    "INTRO": "Java International Machine-building<br> Center of open Information Technology",
+    "SECONDARY": "Single platform at the junction of engineering and Java, Web technologies",
+    "INDUSTRY4": "<h5 class='mt-0 mb-3'>Industry 4.0</h5><p>Transformation into a completely digital manufacturing, managed by intelligent systems that interact with the environment, moving beyond the enterprise to form a global industrial network.</p><p class='mb-0'>It includes Big Data, on the basis of which solutions are formed.</p><p class='mb-0'>Interaction of modules, using network protocols and sensors that implements Internet of Things (IoT).</p>",
+    "ERP": "<h5 class='mt-0 mb-3'>ERP Systems</h5><p>Implement the principle of visibility. Allow to see the company's picture in real time and make the necessary decisions in the event that it is not possible to ensure the collection of data without human intervention.</p><p class='mb-0'>The data is stored in the cloud to which the ERP system is connected.</p>"   
   }
 }
