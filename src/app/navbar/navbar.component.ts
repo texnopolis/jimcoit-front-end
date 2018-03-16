@@ -21,9 +21,7 @@ export class NavbarComponent implements OnInit {
     onScroll($event) {
       if (pageYOffset > 60 && innerWidth >= 768) {
         this.isScrolled = true;
-      } else {
-        this.isScrolled = false;
-      }
+      } else this.isScrolled = false;
     }
 
   @HostListener('window:resize', ['$event'])
@@ -31,18 +29,14 @@ export class NavbarComponent implements OnInit {
       this.innerWidth = event.target.innerWidth;
       if (innerWidth < 768) {
         this.isFixed = false;
-      } else {
-        this.isFixed = true;
-      }
+      } else this.isFixed = true;
     }
 
   ngOnInit() {
     this.innerWidth = window.screen.width;
     if (innerWidth < 768) {
       this.isFixed = false;
-    } else {
-      this.isFixed = true;
-    }
+    } else this.isFixed = true;
   }
 
 }

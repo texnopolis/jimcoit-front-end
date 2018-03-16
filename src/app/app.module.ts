@@ -10,7 +10,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 
 import { MockBackend } from '@angular/http/testing';
-import { fakeBackendProvider } from './helpers/fake-backend';
+import { MockProvider } from './helpers/mock';
 import { HttpModule, Http, BaseRequestOptions } from '@angular/http';
 
 
@@ -42,6 +42,7 @@ import { ParticipateComponent } from './participate/participate.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ManufacturingComponent } from './manufacturing/manufacturing.component';
 import { ScienceComponent } from './science/science.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -71,6 +72,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProjectsComponent,
     ManufacturingComponent,
     ScienceComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -159,7 +161,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AuthService,
     AuthGuard,
     AdminAuthGuard,
-    fakeBackendProvider,
+    MockProvider,
     MockBackend,
     BaseRequestOptions,
     WindowRef

@@ -1,7 +1,7 @@
 import { Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 
-export function fakeBackendFactory(
+export function MockFactory(
     backend: MockBackend, 
     options: BaseRequestOptions) {
         
@@ -55,8 +55,8 @@ export function fakeBackendFactory(
   return new Http(backend, options);
 }
 
-export let fakeBackendProvider = {
+export let MockProvider = {
     provide: Http,
-    useFactory: fakeBackendFactory,
+    useFactory: MockFactory,
     deps: [MockBackend, BaseRequestOptions]
 };

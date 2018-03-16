@@ -63,14 +63,12 @@
     -ms-user-select: none;
     user-select: none;
 }
-
 /* Hide the browser's default radio button */
 .lang-box input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
 }
-
 /* Create a custom radio button */
 .checkmark {
     position: absolute;
@@ -81,34 +79,29 @@
     background-color: #eee;
     border-radius: 50%;
 }
-
 /* On mouse-over, add a grey background color */
 .lang-box:hover input ~ .checkmark {
     background-color: rgba(204, 204, 204, 0.7);
 }
-
 /* When the radio button is checked, add a blue background */
 .lang-box input:checked ~ .checkmark {
     background-color: rgba(246, 138, 32, 0.7);
     /*background-color: rgba(0, 116, 166, 0.7);*/
 }
-
 /* Create the indicator (the dot/circle - hidden when not checked) */
 .checkmark:after {
     content: "";
     position: absolute;
     display: none;
 }
-
 /* Show the indicator (dot/circle) when checked */
 .lang-box input:checked ~ .checkmark:after {
     display: block;
 }
-
 /* Style the indicator (dot/circle) */
 .lang-box .checkmark:after {
-    width: 12px;
-    height: 12px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background: #ffffff;
     position: absolute;
@@ -116,7 +109,6 @@
     top: 50%;
     transform: translate(-50%,-50%);
 }
-
 .lang label {
     margin-bottom: 0;
     color: rgba(0, 0, 0, 0.5);
@@ -124,7 +116,6 @@
 .nav-item.lang {
     margin-right: 16px;
 }
-
 @media (max-width: 991px) {
     .divider-vertical {
         display: none;
@@ -133,13 +124,11 @@
         align-items: flex-start;
     }
 }
-
 .active .nav-link {
     /*text-shadow: 1px 0px 1px rgba(150, 150, 150, 0.7);*/
     /*text-shadow: 0 2px 5px rgba(0,0,0,.26);*/
     color: rgba(0, 0, 0, 0.8) !important;
 }
-
 .dropdown-item:active {
     background-color: rgba(19, 150, 186, 0.6);
 }
@@ -149,7 +138,6 @@
 .dropdown-item {
     transition: background-color .35s ease;
 }
-
 .navbar .dropdown-menu.show {
     animation: showDropdown .35s ease forwards;
 }
