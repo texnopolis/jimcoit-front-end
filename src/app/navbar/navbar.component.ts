@@ -8,14 +8,12 @@ import {TranslateService} from '@ngx-translate/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  private isCollapsed = true;
-  private isScrolled: boolean;
-  private isFixed = true;
-  private innerWidth: any;
+  public isCollapsed = true;
+  public isScrolled: boolean;
+  public isFixed = true;
+  public innerWidth: any;
 
-  constructor(
-    private authService: AuthService,
-    private translate: TranslateService) {}
+  constructor(public authService: AuthService, public translate: TranslateService) {}
 
   @HostListener('window:scroll', ['$event'])
     onScroll($event) {

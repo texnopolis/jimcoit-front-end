@@ -8,7 +8,7 @@ import { NewsService } from '../services/news.service';
   styleUrls: ['./news.component.css']
 })
 export class NewsComponent implements OnInit {
-  private news;
+  public news;
   constructor(service: NewsService) { 
     this.news = service.getNews();
    }

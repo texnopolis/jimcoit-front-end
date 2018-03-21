@@ -23,6 +23,9 @@ p {
     /*background-color: #00b0ff;*/
     background-color: hsla(30, 92%, 55%, 0.7);
 }
+.dropdown-item:active > .text-muted {
+    color: #fff !important;
+}
 .footer {
     border-top: 1px solid #e3edf1;
 }
@@ -43,7 +46,6 @@ p {
 }
  /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {}
-
  /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {}
 

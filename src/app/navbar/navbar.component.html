@@ -4,11 +4,9 @@
     <a class="navbar-brand" routerLink="/">
       <img src="/assets/img/Logo.svg" style="width: 99px" alt="Logo">
     </a>
-
     <button class="navbar-toggler" (click)="isCollapsed = !isCollapsed" type="button" [attr.aria-expanded]="!isCollapsed">
         <span class="navbar-toggler-icon"></span>
     </button>
-
     <div [ngbCollapse]="isCollapsed" class="navbar-collapse flex-column">
       <ul class="navbar-nav ml-auto settings-content">
         <li class="nav-item lang">
@@ -16,74 +14,33 @@
               <input type="radio" #langSelect (change)="translate.use(langSelect.value)" [value]="lang" [checked]="lang === translate.currentLang" name="radio">
               <span class="checkmark"></span>
           </label>
-
-          <!-- <select #langSelect (change)="translate.use(langSelect.value)">
-            <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
-          </select> -->
-
-
-          <!-- <label class="lang-box">Ukr
-              <input type="radio" name="radio">
-              <span class="checkmark"></span>
-          </label>
-          <label class="lang-box">Rus
-              <input type="radio" name="radio">
-              <span class="checkmark"></span>
-          </label> -->
-          
-            <!-- <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                <option value="1">Рус</option>
-                <option value="2">Укр</option>
-                <option value="3">Eng</option>
-                <option value="4">Pol</option>
-                <option value="5">Čes</option>
-            </select> -->
         </li>
-
-        <!-- <li ngbDropdown class="nav-item dropdown">
-          <a ngbDropdownToggle class="nav-item nav-link dropdown-toggle mr-md-2">
-            Рус
-          </a>
-          <div class="dropdown-menu" ngbDropdownMenu>
-            <a class="dropdown-item active" href="#">Рус</a>
-            <a class="dropdown-item" href="#">Укр</a>
-            <a class="dropdown-item" href="#">Eng</a>
-          </div>
-        </li> -->
-
         <li class="nav-item">
           <form class="form-inline my-2 my-md-0">
             <input class="form-control form-control-sm" type="text" placeholder="{{ 'NAVBAR.SEARCH' | translate }}" aria-label="Search">
           </form>
         </li>
-        
         <li *ngIf="authService.isLoggedIn()"><a class="nav-link">{{ authService.currentUser.name }}</a></li>
-        <li *ngIf="!authService.isLoggedIn()" class="nav-item" routerLinkActive="active"><a class="nav-link" href="#">{{ 'NAVBAR.SIGNUP' | translate }}</a></li>
-        <li *ngIf="!authService.isLoggedIn()" class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/login">{{ 'NAVBAR.SIGNIN' | translate }}</a></li>
-        <li *ngIf="authService.isLoggedIn()" class="nav-item"><a class="nav-link" routerLink="/login" (click)="authService.logout()">{{ 'NAVBAR.SIGNOUT' | translate }}</a></li>
+        <li *ngIf="!authService.isLoggedIn()" class="nav-item" routerLinkActive="active">
+          <a class="nav-link" href="#">{{ 'NAVBAR.SIGNUP' | translate }}</a>
+        </li>
+        <li *ngIf="!authService.isLoggedIn()" class="nav-item" routerLinkActive="active">
+          <a class="nav-link" href="#">{{ 'NAVBAR.SIGNIN' | translate }}</a>
+        </li>
+        <li *ngIf="authService.isLoggedIn()" class="nav-item">
+          <a class="nav-link" routerLink="/login" (click)="authService.logout()">{{ 'NAVBAR.SIGNOUT' | translate }}</a>
+        </li>
       </ul>
-
       <ul class="navbar-nav ">
         <li ngbDropdown class="nav-item dropdown" routerLinkActive="active">
           <a ngbDropdownToggle class="nav-link dropdown-toggle">
             <span class="icon-earth-globe"></span> {{ 'NAVBAR.EDUCATION' | translate }}</a>
           <div ngbDropdownMenu class="dropdown-menu show">
-              <a class="dropdown-item" routerLink="/cluster">
-                  <span class="h6 mb-0">Кластер</span>
-                  <div class="text-small text-muted">Инжиниринг, моделирование</div>
-                  <div class="text-small text-muted">Front-end реализация</div>
-                  <div class="text-small text-muted">Back-end реализация</div>
-              </a>
+              <a class="dropdown-item" routerLink="/cluster" [innerHTML]=" 'NAVBAR.CLUSTER' | translate "></a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" routerLink="/chair">
-                  <span class="h6 mb-0">Кафедра</span>
-                  <p class="text-small text-muted">Деятельность кафедры</p>
-              </a>
+              <a class="dropdown-item" routerLink="/chair" [innerHTML]=" 'NAVBAR.CHAIR' | translate "></a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" routerLink="/khpi">
-                  <span class="h6 mb-0">ХПИ</span>
-                  <p class="text-small text-muted">Деятельность института</p>
-              </a>
+              <a class="dropdown-item" routerLink="/khpi" [innerHTML]=" 'NAVBAR.KHPI' | translate "></a>
           </div>
         </li>
         <li class="divider-vertical"></li>

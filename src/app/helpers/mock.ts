@@ -5,7 +5,7 @@ export function MockFactory(
     backend: MockBackend, 
     options: BaseRequestOptions) {
         
-  let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlNlcmhpaSBLb25vbmVua28iLCJhZG1pbiI6dHJ1ZX0.L6KuT42fsFnXvXKcGKGeBebSZ8__sBTnKaRgYVnbopQ';
+  let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ik5hbWUiLCJhZG1pbiI6ZmFsc2V9.cd7hcDg7PEsoq9sESMDAXK2q38s9OKWeI-Yd6loCgBc';
     
   backend.connections.subscribe((connection: MockConnection) => {
     // We are using the setTimeout() function to simulate an 
@@ -18,7 +18,7 @@ export function MockFactory(
         connection.request.method === RequestMethod.Post) {
         let body = JSON.parse(connection.request.getBody());
 
-        if (body.email === 'sergeykono@gmail.com' && body.password === '1325') {
+        if (body.email === 'email@gmail.com' && body.password === '14959') {
           connection.mockRespond(new Response(
             new ResponseOptions({
               status: 200,
