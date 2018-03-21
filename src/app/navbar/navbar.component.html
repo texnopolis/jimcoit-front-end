@@ -1,0 +1,94 @@
+<nav class="navbar navbar-expand-lg navbar-light" [class.fixed-top]="isFixed" [class.sticky]="isScrolled" (scroll)="onScroll($event)" (window:resize)="onResize($event)">
+  <div class="container">
+
+    <a class="navbar-brand" routerLink="/">
+      <img src="/assets/img/Logo.svg" style="width: 99px" alt="Logo">
+    </a>
+    <button class="navbar-toggler" (click)="isCollapsed = !isCollapsed" type="button" [attr.aria-expanded]="!isCollapsed">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div [ngbCollapse]="isCollapsed" class="navbar-collapse flex-column">
+      <ul class="navbar-nav ml-auto settings-content">
+        <li class="nav-item lang">
+          <label *ngFor="let lang of translate.getLangs()" class="lang-box">{{ lang | uppercase }}
+              <input type="radio" #langSelect (change)="translate.use(langSelect.value)" [value]="lang" [checked]="lang === translate.currentLang" name="radio">
+              <span class="checkmark"></span>
+          </label>
+        </li>
+        <li class="nav-item">
+          <form class="form-inline my-2 my-md-0">
+            <input class="form-control form-control-sm" type="text" placeholder="{{ 'NAVBAR.SEARCH' | translate }}" aria-label="Search">
+          </form>
+        </li>
+        <li *ngIf="authService.isLoggedIn()"><a class="nav-link">{{ authService.currentUser.name }}</a></li>
+        <li *ngIf="!authService.isLoggedIn()" class="nav-item" routerLinkActive="active">
+          <a class="nav-link" href="#">{{ 'NAVBAR.SIGNUP' | translate }}</a>
+        </li>
+        <li *ngIf="!authService.isLoggedIn()" class="nav-item" routerLinkActive="active">
+          <a class="nav-link" href="#">{{ 'NAVBAR.SIGNIN' | translate }}</a>
+        </li>
+        <li *ngIf="authService.isLoggedIn()" class="nav-item">
+          <a class="nav-link" routerLink="/login" (click)="authService.logout()">{{ 'NAVBAR.SIGNOUT' | translate }}</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ">
+        <li ngbDropdown class="nav-item dropdown" routerLinkActive="active">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle">
+            <span class="icon-earth-globe"></span> {{ 'NAVBAR.EDUCATION' | translate }}</a>
+          <div ngbDropdownMenu class="dropdown-menu show">
+              <a class="dropdown-item" routerLink="/cluster" [innerHTML]=" 'NAVBAR.CLUSTER' | translate "></a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" routerLink="/chair" [innerHTML]=" 'NAVBAR.CHAIR' | translate "></a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" routerLink="/khpi" [innerHTML]=" 'NAVBAR.KHPI' | translate "></a>
+          </div>
+        </li>
+        <li class="divider-vertical"></li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/science"><span class="icon-scientist"></span> {{ 'NAVBAR.SCIENCE' | translate }}</a>
+        </li>
+        <li class="divider-vertical"></li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/manufacturing"><span class="icon-industrial-robot"></span> {{ 'NAVBAR.MANUFACTURING' | translate }}</a>
+        </li>
+        <li class="divider-vertical"></li>
+        <li ngbDropdown class="nav-item dropdown" routerLinkActive="active">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle"><span class="icon-calculator"></span> {{ 'NAVBAR.TOOLS' | translate }}</a>
+          <div ngbDropdownMenu class="dropdown-menu">
+            <a class="dropdown-item" routerLink="/cutting-calculation">
+              <span class="h6 mb-0">Режимы обработки</span>
+              <p class="text-small text-muted">Фрезерование, точение, сверление</p>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" routerLink="/virtual-warehouse">
+                <span class="h6 mb-0">Виртуальный склад</span>
+                <p class="text-small text-muted">Оптимизация склада</p>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" routerLink="/planner">
+                <span class="h6 mb-0">Планирование</span>
+                <p class="text-small text-muted">Управление проектами</p>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" routerLink="/knowledge">
+              <span class="h6 mb-0">База знаний</span>
+              <p class="text-small text-muted">Техническая информация</p>
+            </a>
+          </div>
+        </li>
+        <li class="divider-vertical"></li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/projects"><span class="icon-projects"></span> {{ 'NAVBAR.PROJECTS' | translate }}</a>
+        </li>
+        <li class="divider-vertical"></li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/participate"><span class="icon-transfer"></span> {{ 'NAVBAR.PARTICIPANTS' | translate }}</a>
+        </li>
+        <li class="divider-vertical"></li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/contacts"><span class="icon-email"></span> {{ 'NAVBAR.CONTACTS' | translate }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
